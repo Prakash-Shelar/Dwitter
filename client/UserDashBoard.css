@@ -1,0 +1,89 @@
+/* * { 
+    padding: 0; 
+    margin: 0;  
+    box-sizing: border-box; 
+    font-family: cursive; 
+  } 
+
+body { 
+    background: #f2f2f2; 
+    overflow: auto; 
+    /* background-image: url("./images/back2.jpg"); */
+  /* }  */
+  /* .center {
+    text-align: center;
+    align-items: center;
+    
+  }
+  .column {
+    float: left; */
+    /* background: #f2f2f2;  */
+    /* display: flex; */
+    /* height: 200px;
+    width: 33.33%;
+    
+  } */
+
+  /* h1{ 
+    text-align: center; 
+    margin: 5%; 
+    font-size: 3rem; 
+    /* text-decoration: underline;  */
+ /* } 
+ h2{ 
+    text-align: center; 
+    margin: 5%;  */
+    /* font-size: 2rem;  */ */
+    /* text-decoration: underline;  */
+ /* }  */
+ /* label{
+   margin: 1%; 
+    font-size: 1.5rem; 
+ } */
+ /* input[type=text] {
+   align-items: center;
+   border: none;
+   border-radius: 0;
+   width: 50%;
+   padding: 15px 22px;
+   /* margin: 10px 5px; */
+   /* box-sizing: border-box;  
+}
+button{
+   background-color: #6c7eaf;
+   border: none;
+   color: white;
+   padding: 18px 36px;
+   text-decoration: none;
+   margin: 5px 4px;
+   cursor: pointer;   */
+/* } 
+
+.tagInput{
+    align-items: center;
+    border: none;
+    border-radius: 0;
+    width: 25%;
+    padding: 5px 9px;
+    /* margin: 10px 5px; */
+    /* box-sizing: border-box;  */
+/* }  */
+/*************** Sidebar********************
+ */
+ /* .sidebar {
+    border-right: 1px solid var(--twitter-background);
+    flex: 0.3;
+    min-width: 250px;
+    margin-left: 20px;
+    margin-right: 0px;
+  } */
+
+  .hidBtn{
+    visibility: hidden;
+  }
+  
+  /* .logOutDiv{
+    /* padding left:5px;  */
+    /* float: left;
+     
+  } */

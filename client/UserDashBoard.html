@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
+</style>
+<body class="w3-theme-l5">
+
+<!-- Navbar -->
+<div class="w3-top">
+ <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>Dweeter</a>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="News"><i class="fa fa-globe"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Account Settings"><i class="fa fa-user"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Messages"><i class="fa fa-envelope"></i></a>
+  <div class="w3-dropdown-hover w3-hide-small">
+    <button class="w3-button w3-padding-large" title="Notifications"><i class="fa fa-bell"></i><span class="w3-badge w3-right w3-small w3-green">3</span></button>     
+    <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
+      <a href="#" class="w3-bar-item w3-button"></a>
+      <a href="#" class="w3-bar-item w3-button"></a>
+      <a href="#" class="w3-bar-item w3-button"></a>
+    </div>
+  </div>
+  <button class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" type="button" id="logoutButton">Log Out</button>
+  <!-- <a id="logoutButton" href="home.html" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="Log out"> -->
+    <!-- <img src="./images/avatar.png" class="w3-circle" style="height:23px;width:23px" alt="Avatar"> -->
+  <!-- </a> -->
+ </div>
+</div>
+
+<!-- Navbar on small screens -->
+<div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">My Profile</a>
+</div>
+
+<!-- Page Container -->
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">    
+  <!-- The Grid -->
+  <div class="w3-row">
+    <!-- Left Column -->
+    <div class="w3-col m3">
+      <!-- Profile -->
+      <div class="w3-card w3-round w3-white">
+        <div class="w3-container">
+         <h4 class="w3-center">Welcome</h4>
+         <p class="w3-center"><img src="./images/avatar.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
+         <p id="username" class="w3-center"></p>
+         <hr>
+         <p ><label>Followers:</label><i class="fa-fw w3-margin-right w3-text-theme"></i><label id="UserFollowers"></label></p>
+         <p ><label>Following:</label><i class="fa-fw w3-margin-right w3-text-theme"></i><label id="UserFollowing"></label></p>
+         <p ><label>Joined On:</label><i class="fa-fw w3-margin-right w3-text-theme"></i><label id="UserCreatedON"></label></p>
+        </div>
+      </div>
+      <br>
+      
+      <!-- Accordion -->
+      <div class="w3-card w3-round">
+        <div class="w3-white">
+          <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-circle-o-notch fa-fw w3-margin-right"></i> My Groups</button>
+          <div id="Demo1" class="w3-hide w3-container">
+            <p>Some text..</p>
+          </div>
+          <button onclick="myFunction('Demo2')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-calendar-check-o fa-fw w3-margin-right"></i> My Events</button>
+          <div id="Demo2" class="w3-hide w3-container">
+            <p>Some other text..</p>
+          </div>
+          <button onclick="myFunction('Demo3')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i> My Photos</button>
+          <div id="Demo3" class="w3-hide w3-container">
+         <!-- <div class="w3-row-padding">
+         <br>
+           <div class="w3-half">
+             <img src="/w3images/lights.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/mountains.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/forest.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/snow.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+         </div> -->
+          </div>
+        </div>      
+      </div>
+      <br>
+      
+      <!-- Interests --> 
+      <!-- <div class="w3-card w3-round w3-white w3-hide-small">
+        <div class="w3-container">
+          <p>Interests</p>
+          <p>
+            <span class="w3-tag w3-small w3-theme-d5">News</span>
+            <span class="w3-tag w3-small w3-theme-d4">W3Schools</span>
+            <span class="w3-tag w3-small w3-theme-d3">Labels</span>
+            <span class="w3-tag w3-small w3-theme-d2">Games</span>
+            <span class="w3-tag w3-small w3-theme-d1">Friends</span>
+            <span class="w3-tag w3-small w3-theme">Games</span>
+            <span class="w3-tag w3-small w3-theme-l1">Friends</span>
+            <span class="w3-tag w3-small w3-theme-l2">Food</span>
+            <span class="w3-tag w3-small w3-theme-l3">Design</span>
+            <span class="w3-tag w3-small w3-theme-l4">Art</span>
+            <span class="w3-tag w3-small w3-theme-l5">Photos</span>
+          </p>
+        </div>
+      </div> -->
+      <br>
+      
+      <!-- Alert Box -->
+      <div class="w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small">
+        <span onclick="this.parentElement.style.display='none'" class="w3-button w3-theme-l3 w3-display-topright">
+          <i class="fa fa-remove"></i>
+        </span>
+        <p><strong>Hey!</strong></p>
+        <p>Welcome to the Decentralized world...!!</p>
+      </div>
+    
+    <!-- End Left Column -->
+    </div>
+    
+    <!-- Middle Column -->
+    <div class="w3-col m7">
+    
+      <div class="w3-row-padding">
+        <div class="w3-col m12">
+          <div class="w3-card w3-round w3-white">
+            <div class="w3-container w3-padding">
+              <h6 class="w3-opacity">Lets Dweet Something...</h6>
+              <!-- <p contenteditable="true" class="w3-border w3-padding">Status: Feeling Blue</p> -->
+              <input type="text" id="tweetInput" placeholder="What's Happening?" style="padding: 15px 22px;" style="width: 80%;">
+              <input type="text" id="tagInput" placeholder="#HashTags here..." style="padding: 15px 22px;" style="width: 80%;">
+              <br>
+              <br>
+              <button id="DweetButton" type="button" class="w3-button w3-theme"><i class="fa fa-pencil"></i>  Post</button> 
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+        <img src="./images/avatar.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+        <p id="postTime" class="w3-right w3-opacity">1 min</p>
+        <p id="userOfPost"></p><br>
+        <hr class="w3-clear">
+        <p id="DweetId">0</p>
+        <p id="postContent">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p><label>Tag:</label><label id ="postTag"></label></p>
+        <button id="LikeButton" type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
+        <button id="ReTweetButton" type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i> Re-Tweet</button> 
+      </div>
+      
+      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+        <img src="./images/avatar.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+        <p id="postTime" class="w3-right w3-opacity">16 min</p>
+        <p id="userOfPost"></p><br>
+        <hr class="w3-clear">
+        <p id="DweetId">1</p>
+        <p id="postContent">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p><label>Tag:</label><label id ="postTag"></label></p>
+        <button id="LikeButton" type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
+        <button id="Re-TweetButton" type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i> Re-Tweet</button> 
+      </div>  
+
+      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+        <img src="./images/avatar.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+        <p id="postTime" class="w3-right w3-opacity">32 min</p>
+        <p id="userOfPost"></p><br>
+        <hr class="w3-clear">
+        <p>Have you seen this?</p>
+        <p id="DweetId">2</p>
+        <p id="postContent">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p><label>Tag:</label><label id ="postTag"></label></p>
+        <button id="LikeButton" type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
+        <button id="Re-TweetButton" type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i> Re-Tweet</button> 
+      </div> 
+      
+    <!-- End Middle Column -->
+    </div>
+    
+    <!-- Right Column -->
+    <div class="w3-col m2">
+      <div class="w3-card w3-round w3-white w3-center">
+        <div class="w3-container">
+          <p><strong>Search User:</strong></p>
+          <input type="text" id="searchUserInput" placeholder="Enter User Name...">
+          
+          <p><button id="SearchButton" class="w3-button w3-block w3-theme-l4">Search</button></p>
+          
+          <div id="SearchedUserDiv" style="visibility: hidden;">
+            <p ><label>User Name:</label><i class="fa-fw w3-margin-right w3-text-theme"></i><label id="Searchedusername"></label></p>
+            <p ><label>Staus:</label><i class="fa-fw w3-margin-right w3-text-theme"></i><label id="SearchedStatus"></label></p>
+            <p><label>Followers:</label><i class="fa-fw w3-margin-right w3-text-theme"></i><label id="SearchedFollowers"></label></p>
+            <p ><label>Following:</label><i class="fa-fw w3-margin-right w3-text-theme"></i><label id="SearchedFollowing"></label></p>
+            <p ><label>Joined On:</label><i class="fa-fw w3-margin-right w3-text-theme"></i><label id="SearchedCreatedON"></label></p>
+            
+            <button style="visibility: hidden;" type="button" id="FollowButton" class="w3-button w3-theme-d1 w3-margin-bottom">Follow</button>
+          </div>
+          <!-- <img src="/w3images/forest.jpg" alt="Forest" style="width:100%;"> -->
+          
+        </div>
+      </div>
+      
+      <br>
+      
+      <div class="w3-card w3-round w3-white w3-left">
+        <div class="w3-container">
+          <p><strong>Search Tag:</strong></p>
+          <input type="text" id="searchTagInput" placeholder="Enter #Tag...">
+          
+          <p><button id="TagSearchButton" class="w3-button w3-block w3-theme-l4">Search</button></p>
+          <ul id="TagTweets">
+            <li id="searchList" style="visibility: hidden;">Id | Dweet Content</li>
+          </ul>
+
+
+          <!-- <img src="/w3images/avatar6.png" alt="Avatar" style="width:50%"><br> -->
+
+          <!-- <div class="w3-row w3-opacity">
+            <div class="w3-half">
+              <button class="w3-button w3-block w3-green w3-section" title="Accept"><i class="fa fa-check"></i></button>
+            </div>
+            <div class="w3-half">
+              <button class="w3-button w3-block w3-red w3-section" title="Decline"><i class="fa fa-remove"></i></button>
+            </div>
+          </div> -->
+        </div>
+      </div>
+      <br>      
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+<!-- End Page Container -->
+</div>
+<br>
+
+<!-- Footer -->
+
+<footer class="w3-container w3-theme-d5">
+  <p>@2021 | Prakash</p>
+</footer>
+ 
+<script>
+// Accordion
+function myFunction(id) {
+  var x = document.getElementById(id);
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+    x.previousElementSibling.className += " w3-theme-d1";
+  } else { 
+    x.className = x.className.replace("w3-show", "");
+    x.previousElementSibling.className = 
+    x.previousElementSibling.className.replace(" w3-theme-d1", "");
+  }
+}
+
+// Used to toggle the menu on smaller screens when clicking on the menu button
+function openNav() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+    <script src="artifacts/DwitterAbi.js" ></script>
+    <script src="./node_modules/web3/dist/web3.min.js" ></script>
+    <script src="./Initialisation.js" ></script>
+    <script src="UserDashBoard.js"></script>
+</body>
+</html> 
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dash-Board</title>
+    <link rel="stylesheet" href="UserDashBoard.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+          <div class="col order-last"> -->
+            <!-- First in DOM, ordered last -->
+            <!-- <div class="sidebar" style="background-color: #cce4f1;">
+                <br>
+                    <button type="button" id="logoutButton">Log Out</button>
+                    <br>
+                    <h2>Search User</h2>
+                    <div class="center">
+                        <input type="text" id="searchUserInput" placeholder="Enter User Name...">
+                        <br>
+                        <br>
+                        <button type="button" id="SearchButton">Search</button>
+                    </div>            
+
+                    <div>
+                        <label>Username:</label>
+                        <p id = "Searchedusername"></p>
+                        <label>Followers:</label>
+                        <p id = "SearchedFollowers"></p>
+                        <label>Following:</label>
+                        <p id = "SearchedFollowing"></p>
+                        <label>Account Created On:</label>
+                        <p id = "SearchedCreatedON"></p>
+                        <label>Status:</label>
+                        <p id = "SearchedStatus"></p>
+                        <br>
+                        <div>
+                            <button class="hidBtn" type="button" id="FollowButton">Follow</button>
+                        </div>
+                    </div>
+
+                    <h2>#HashTag</h2>
+                    <div class="center">
+                        <input type="text" id="searchTagInput" placeholder="Enter #HashTag...">
+                        <br>
+                        <br>
+                        <button type="button" id="TagSearchButton">Search</button>
+                    </div>
+                    <div class="card text-center">
+                        <div class="card-header">
+                          Featured
+                        </div>
+                        <div class="card-body">
+                          <h5 class="card-title">Special title treatment</h5>
+                          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                          <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                        <div class="card-footer text-muted">
+                          2 days ago
+                        </div>
+                      </div>
+            </div>
+            
+          </div>
+          <div class="col"> -->
+            <!-- Second in DOM, unordered -->
+            <!-- <div class="sidebar" style="background-color: #cce4f1;">
+                <br>
+                <h2>Tweet</h2>
+                <div class="center">
+                    <input type="text" id="tweetInput" placeholder="What's Happening?">
+                    <br>
+                    <br>
+                    <input class="tagInput" type="text" id="TagInput" placeholder="#HashTags here...">
+                    <br>
+                    <br>
+                    <button type="button" id="TweetButton">Tweet</button>
+                </div>
+                
+            </div>
+            <div style="background-color: #ffffff";>
+                <br>
+            </div>
+
+            <div class="sidebar" style="background-color: #cce4f1"; style="flex-grow: inherit;">
+                <h2>Feed</h2>
+                <div class="card text-center">
+                    <div class="card-header">
+                      Featured
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Special title treatment</h5>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                      2 days ago
+                    </div>
+                  </div>
+            </div>
+           
+          </div>
+          <div class="col order-first"> -->
+            <!-- Third in DOM, ordered first -->
+            <!-- <div class="sidebar" style="background-color: #cce4f1;">
+                <br>
+                <h1>Welcome,</h1>
+                        <p id = "username"></p>
+                        
+                        <label>Followers:</label>
+                        <p id = "UserFollowers"></p>
+                        <label>Following:</label>
+                        <p id = "UserFollowing"></p>
+                        <label>Account Created On:</label>
+                        <p id = "UserCreatedON"></p>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    <script src="artifacts/DwitterAbi.js" ></script>
+    <script src="./node_modules/web3/dist/web3.min.js" ></script>
+    <script src="./Initialisation.js" ></script>
+    <script src="UserDashBoard.js"></script>
+</body>
+</html> -->

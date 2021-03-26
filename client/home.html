@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dwitter</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <!-- <div style="background-image: url('./images/twitterLogo.png');"></div> -->
+    <form action="./UserDashBoard.html" method="POST">
+        <div class="center">
+            <div style="background-image: url('./images/twitterLogo.png');"></div>
+            <h1>Sign Up</h1>
+            <br>
+            <br>
+            <label>User Name</label>
+            <br>
+            <input type="text" placeholder="Enter Your Name." id="userInput">
+            <br>
+            <br>
+            <button type="button" id="SignUpButton">Sign Up</button>
+            <br>
+            <br>
+            <button type="button" id="SignInButton">Sign In</button>
+    
+        </div>
+    
+        <script src="artifacts/DwitterAbi.js" ></script>
+        <script src="./node_modules/web3/dist/web3.min.js" ></script>
+        <script src="./Initialisation.js" ></script>
+        <script src="index.js"></script>
+    </form>
+    
+</body>
+</html>
