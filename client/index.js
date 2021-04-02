@@ -26,6 +26,9 @@ const handleSignUp = () => {
                 }
             }
     )
+    .on("receipt", (receipt)=>{
+        window.location.href = "UserDashBoard.html";
+    })
 }
 
 const handleSignIn = () => {
@@ -39,7 +42,10 @@ const handleSignIn = () => {
                 alert(error, receipt);
             }
     )
-    // window.location.href = "UserDashBoard.html";
+    .on("receipt", (receipt)=>{
+        window.location.href = "UserDashBoard.html";
+    })
+    
 }
 
 userInputElement.addEventListener("change", handleInputChange);
