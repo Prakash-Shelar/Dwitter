@@ -1,7 +1,7 @@
 pragma solidity ^0.8.0;
 
 contract Dwitter {
-    address manager;    
+    address payable manager;    
     struct User {
         address userAddress;
         string userName;
@@ -12,34 +12,36 @@ contract Dwitter {
         address[] following;
     }
     
-    mapping(address=>User) public users;
-    mapping(string=>address) userNameToAddress;
+    mapping(address=>User) private users;
+    mapping(string=>address) private userNameToAddress;
     
     event newUser(address userAddress, string userName, uint accountCreatedON, uint followers, uint following);
-    event newTweet(uint postID, string userName, string content, string tag);
+    event newTweet(uint postID, uint postTimeStamp, string userName, string content, string tag);
     
     event userSignIN(address userAddress, string userName, uint accountCreatedON, uint followers, uint following);
     
     
     struct Post {
         uint postId;
+        uint postTimeStamp;
+        string userName;
         string content;
         string tag;
     }
     
     uint postCount;
-    mapping(address=>Post[]) posts;
+    mapping(address=>Post[]) private posts;
     Post[] allPosts;
-    mapping(uint=>Post) idToPost;
-    mapping(uint=>address) idToUser;
+    mapping(uint=>Post) private idToPost;
+    mapping(uint=>address) private idToUser;
     // mapping(uint => mapping(address => Post)) postIdToUser;
-    mapping(string=>Post[]) tagsToPost;
+    mapping(string=>Post[]) private tagsToPost;
     
-    mapping(uint=>address[]) likes;
-    mapping(uint=>address[]) reTweets;
+    mapping(uint=>address[]) private likes;
+    mapping(uint=>address[]) private reTweets;
     
     constructor() {
-        manager = msg.sender;
+        manager = payable(msg.sender);
     }
     
     // Modifiers
@@ -65,6 +67,11 @@ contract Dwitter {
     
     modifier checkAccountStatus(address _userAddress) {
         require(users[_userAddress].accountStatus, "This Account is deactivated");
+        _;
+    }
+    
+    modifier onlymanager(){
+        require(msg.sender == manager, "Only manager have access to this function");
         _;
     }
     
@@ -103,6 +110,10 @@ contract Dwitter {
         return(users[msg.sender].userName, users[msg.sender].followers.length, users[msg.sender].following.length, users[msg.sender].accountCreatedON);
     }
     
+    function getUserNameByAddress() public userExist(msg.sender) checkAccountStatus(msg.sender) checkSignIn(msg.sender) view returns(string memory) {
+        return(users[msg.sender].userName);
+    }
+    
     
     
     function makeSignIn() public userExist(msg.sender) {
@@ -120,20 +131,21 @@ contract Dwitter {
         users[msg.sender].signIn = false;
     }
     
-    function accountDeactive() public checkAccountStatus(msg.sender) userExist(msg.sender) checkSignIn(msg.sender) {
+    function accountDeactive() public userExist(msg.sender) checkSignIn(msg.sender) {
         users[msg.sender].accountStatus = false;
     }
     
     function tweet(string memory _content, string memory _tag) public checkAccountStatus(msg.sender) userExist(msg.sender) checkSignIn(msg.sender) {
         postCount++;
-        Post memory post = Post(postCount, _content, _tag);
+        string memory _userName = getUserNameByAddress();
+        Post memory post = Post(postCount, block.timestamp, _userName, _content, _tag);
         posts[msg.sender].push(post);
         tagsToPost[_tag].push(post);
         idToPost[postCount] = post;
         idToUser[postCount] = msg.sender;
         allPosts.push(post);
         
-        emit newTweet(postCount, users[msg.sender].userName, _content, _tag);
+        emit newTweet(postCount, idToPost[postCount].postTimeStamp, users[msg.sender].userName, _content, _tag);
     }
     
     function getTweetsOfUser(string memory _userName)public userExist(msg.sender) checkSignIn(msg.sender) checkAccountStatus(userNameToAddress[_userName]) view returns(Post[] memory) {
@@ -179,6 +191,16 @@ contract Dwitter {
         }
     }
     
+    function getFollowers() public view returns(address[] memory){
+        address[] memory FollowedAddress = users[msg.sender].followers;
+        return FollowedAddress;
+    }
+    
+    function getFollowersName(address _userAddress) public view returns(string memory){
+        return(users[_userAddress].userName);
+    }
+        
+    
     function likePost(uint _postID) public checkAccountStatus(msg.sender) checkSignIn(msg.sender){
         require(!alreadyLiked(_postID), "You have already Liked");
         likes[_postID].push(msg.sender);
@@ -215,5 +237,10 @@ contract Dwitter {
     
     function getReTweetByPostID(uint _postID) public checkSignIn(msg.sender) view returns(address[] memory) {
         return reTweets[_postID];
+    }
+    
+    
+    function destroy() public onlymanager {
+        selfdestruct(manager);
     }
 }
